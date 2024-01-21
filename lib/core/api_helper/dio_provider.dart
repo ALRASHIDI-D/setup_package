@@ -71,12 +71,12 @@ class DioProvider extends ApiConsumer {
   }
 
   handleSendToken(bool sendToken) async {
-    if (di.sl<CustomizeApp>().appUseToken) {
+    if (di.sl<CustomizeApp>().appUseToken ?? false) {
       String? token = await cacheHelper.getToken();
       if (sendToken) {
         if ((token?.isNotEmpty) ?? false) {
           dioClient.options.headers.addEntries(
-              {di.sl<CustomizeApp>().tokenKeyUsedInApp: token}.entries);
+              {(di.sl<CustomizeApp>().tokenKeyUsedInApp ?? ''): token}.entries);
         } else if (dioClient.options.headers.keys
             .contains(di.sl<CustomizeApp>().tokenKeyUsedInApp)) {
           dioClient.options.headers.remove(

@@ -7,11 +7,11 @@ class CacheHelper {
   CacheHelper({required this.storage});
 
   Future<String?> getToken() async {
-    return await storage.read(key: AppConsts.tokenKey);
+    return await storage.read(key: AppConstants.tokenKey);
     
   }
 
   Future<void> setToken(String value) async {
-    return await storage.write(key: AppConsts.tokenKey, value: value);
+    return await storage.write(key: AppConstants.tokenKey, value: value);
   }
 }
