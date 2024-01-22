@@ -1,9 +1,20 @@
+import 'package:common_setup/core/utils/entities/customize_app_entity.dart';
+import 'package:common_setup/dependency_injection.dart'
+    as setup_package_injection;
+
 class AppConstants {
-  static const String tokenKey = "token_key";
-  static const double defualtPadding = 12;
-  static const double defualtRadius = 15;
+  static String tokenKeyForLocalStorage = "token_key";
+  static String tokenKeyForAuthorizationHeader =
+      setup_package_injection.sl<CustomizeAppEntity>().tokenKeyUsedInApp ?? '';
+
+  static num defualtPadding =
+      setup_package_injection.sl<CustomizeAppEntity>().defualtPadding ?? 0.0;
+  static num defualtRadius =
+      setup_package_injection.sl<CustomizeAppEntity>().defualtRadius ?? 0.0;
 
   static String arabicFontFamily = 'GE_Flow_Regular';
 
-  static const String englishFontFamily = 'Lato';
+  static String englishFontFamily = 'Lato';
 }
+
+enum TokenTypes { bearer, basic }

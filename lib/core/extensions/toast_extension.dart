@@ -32,9 +32,9 @@ extension ToastExtension on BuildContext {
           Container(
             width: width,
             constraints: BoxConstraints(minHeight: height * 0.06),
-            padding: const EdgeInsets.symmetric(
-                horizontal: AppConstants.defualtPadding,
-                vertical: AppConstants.defualtPadding),
+            padding: EdgeInsets.symmetric(
+                horizontal: AppConstants.defualtPadding.toDouble(),
+                vertical: AppConstants.defualtPadding.toDouble()),
             decoration: BoxDecoration(
                 color: backgroundColor,
                 borderRadius:
@@ -79,6 +79,4 @@ extension ToastExtension on BuildContext {
       duration: Duration(seconds: 2),
     );
   }
-
-
 }
