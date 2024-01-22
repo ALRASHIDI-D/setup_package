@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../core/utils/consts.dart';
+import '../utils/consts.dart';
 
 extension TextStyleExtension on BuildContext {
   TextStyle textStyleSmall({bool isNumer = false}) => TextStyle(

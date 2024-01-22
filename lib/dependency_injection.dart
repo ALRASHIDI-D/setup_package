@@ -1,4 +1,4 @@
-import 'package:common_setup/core/utils/customize_app.dart';
+import 'package:common_setup/core/utils/entities/customize_app_entity.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
@@ -8,8 +8,8 @@ import 'core/api_helper/dio_provider.dart';
 import 'core/cache_helper/cache_helper.dart';
 
 final sl = GetIt.instance;
-Future<void> init(CustomizeApp customizeAppEntity) async {
-  sl.registerLazySingleton<CustomizeApp>(() => CustomizeApp(
+Future<void> init(CustomizeAppEntity customizeAppEntity) async {
+  sl.registerLazySingleton<CustomizeAppEntity>(() => CustomizeAppEntity(
       stagingBaseUrl: customizeAppEntity.stagingBaseUrl,
       prodBaseUrl: customizeAppEntity.prodBaseUrl,
       primaryColor: customizeAppEntity.primaryColor,

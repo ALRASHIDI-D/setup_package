@@ -1,9 +1,9 @@
-import 'package:common_setup/extensions/app_size_extension.dart';
-import 'package:common_setup/extensions/text_style_extension.dart';
+import 'package:common_setup/core/extensions/app_size_extension.dart';
+import 'package:common_setup/core/extensions/text_style_extension.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../core/utils/consts.dart';
+import '../utils/consts.dart';
 
 extension ToastExtension on BuildContext {
   errorToast({String? title, String? content}) {

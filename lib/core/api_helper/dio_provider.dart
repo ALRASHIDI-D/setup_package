@@ -10,7 +10,7 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import '../cache_helper/cache_helper.dart';
 import 'package:common_setup/dependency_injection.dart' as di;
 
-import '../utils/customize_app.dart';
+import '../utils/entities/customize_app_entity.dart';
 import 'error_exceptions.dart/server_exception.dart';
 import 'status_codes.dart';
 
@@ -71,16 +71,17 @@ class DioProvider extends ApiConsumer {
   }
 
   handleSendToken(bool sendToken) async {
-    if (di.sl<CustomizeApp>().appUseToken ?? false) {
+    if (di.sl<CustomizeAppEntity>().appUseToken ?? false) {
       String? token = await cacheHelper.getToken();
       if (sendToken) {
         if ((token?.isNotEmpty) ?? false) {
-          dioClient.options.headers.addEntries(
-              {(di.sl<CustomizeApp>().tokenKeyUsedInApp ?? ''): token}.entries);
+          dioClient.options.headers.addEntries({
+            (di.sl<CustomizeAppEntity>().tokenKeyUsedInApp ?? ''): token
+          }.entries);
         } else if (dioClient.options.headers.keys
-            .contains(di.sl<CustomizeApp>().tokenKeyUsedInApp)) {
+            .contains(di.sl<CustomizeAppEntity>().tokenKeyUsedInApp)) {
           dioClient.options.headers.remove(
-            di.sl<CustomizeApp>().tokenKeyUsedInApp,
+            di.sl<CustomizeAppEntity>().tokenKeyUsedInApp,
           );
         }
       }
