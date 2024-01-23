@@ -236,6 +236,18 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "package_info_plus",
+      "rootUri": "file:///Users/mahmoudalrashidi/.pub-cache/hosted/pub.dev/package_info_plus-4.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "package_info_plus_platform_interface",
+      "rootUri": "file:///Users/mahmoudalrashidi/.pub-cache/hosted/pub.dev/package_info_plus_platform_interface-2.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "path",
       "rootUri": "file:///Users/mahmoudalrashidi/.pub-cache/hosted/pub.dev/path-1.8.3",
       "packageUri": "lib/",
@@ -300,6 +312,18 @@
       "rootUri": "file:///Users/mahmoudalrashidi/.pub-cache/hosted/pub.dev/rxdart-0.27.7",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "sentry",
+      "rootUri": "file:///Users/mahmoudalrashidi/.pub-cache/hosted/pub.dev/sentry-7.15.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "sentry_flutter",
+      "rootUri": "file:///Users/mahmoudalrashidi/.pub-cache/hosted/pub.dev/sentry_flutter-7.15.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
     },
     {
       "name": "shared_preferences",
@@ -452,7 +476,7 @@
       "languageVersion": "3.1"
     }
   ],
-  "generated": "2024-01-21T08:53:46.549755Z",
+  "generated": "2024-01-23T05:22:05.913033Z",
   "generator": "pub",
   "generatorVersion": "3.1.5"
 }

@@ -6,6 +6,7 @@ import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 
 import '../cache_helper/cache_helper.dart';
 import 'package:common_setup/dependency_injection.dart' as di;
@@ -89,12 +90,14 @@ class DioProvider extends ApiConsumer {
   }
 
   dynamic _handleDioError(DioException error) async {
-    // var log = {
-    //   "status_code": error.response?.statusCode,
-    //   "request_url": error.response?.realUri.toString(),
-    //   "request_body": error.requestOptions.data,
-    //   "request_response": error.response?.data,
-    // };
+    var logResponse = {
+      "status_code": error.response?.statusCode,
+      "request_url": error.response?.realUri.toString(),
+      "request_body": error.requestOptions.data,
+      "request_response": error.response?.data,
+    };
+
+    await Sentry.captureMessage(logResponse.toString());
     switch (error.type) {
       case DioExceptionType.connectionTimeout:
       case DioExceptionType.sendTimeout:

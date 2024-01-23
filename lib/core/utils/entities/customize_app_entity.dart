@@ -9,6 +9,7 @@ class CustomizeAppEntity {
   final String? tokenKeyUsedInApp;
   final num? defualtPadding;
   final num? defualtRadius;
+  final String? sentryProjectUrl;
 
   CustomizeAppEntity(
       {required this.stagingBaseUrl,
@@ -18,5 +19,6 @@ class CustomizeAppEntity {
       required this.appUseToken,
       required this.tokenKeyUsedInApp,
       required this.defualtPadding,
-      required this.defualtRadius});
+      required this.defualtRadius,
+      required this.sentryProjectUrl});
 }
