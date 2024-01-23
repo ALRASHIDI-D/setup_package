@@ -1,39 +1,94 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+# Common Setup package
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+This package is for personal use to reduce initialization time in new apps.
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
 
-## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
 
-## Getting started
+## Installation
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+🔩 Installation #
 
-## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+Add to your pubspec.yaml:
 
-```dart
-const like = 'sample';
+```bash
+  dependencies:
+    ...
+    common_setup:
+        git:
+        url: https://github.com/ALRASHIDI-D/setup_package.git
+        ref: main
+    ...
 ```
 
-## Additional information
+## Environment Variables
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+To run this project, you will need to add the following environment variables to your .env file
+
+`BASE_URL_STAGING`
+
+`BASE_URL_PRODUCTION`
+
+`SENTRY_DSN`
+
+
+## ⚙️ Configuration Steps
+
+- [Create App Flavors](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
+
+- [Create sentry new project for app to can monitoring requests](http://sentry.io) 
+
+- [Call 'initialApp' in your main program's configuration section to set up your application.](#)
+
+
+
+
+## Usage/Examples
+
+```flutter
+import 'package:common_setup/dependency_injection.dart' as setup_injection;
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+
+  // Please use the initial app to parse variables for your project.
+  
+  CommonSetup().initialApp(CustomizeAppEntity(
+      stagingBaseUrl: '',
+      prodBaseUrl: '',
+      primaryColor: Colors.black,
+      secondColor: Colors.yellow,
+      appUseToken: false,
+      defualtPadding: 10,
+      defualtRadius: 15,
+      tokenKeyUsedInApp: '',
+      sentryProjectUrl: ''));
+  runApp(EasyLocalization(
+      supportedLocales: const [Locale('en'), Locale('ar')],
+      path: 'assets/translations',
+      fallbackLocale: const Locale('en'),
+      child: const MyApp()));
+}
+```
+
+
+## Deployment
+
+To build app in debug mode
+
+```bash
+  flutter run --flavor staging -t lib/main_staging.dart
+```
+
+To create apk with obfuscate
+
+```bash
+  flutter build apk --flavor staging -t lib/main_staging.dart --obfuscate --split-debug-info=<your path>
+```
+## Authors
+
+- [@ mahmoud alrashidi](https://www.github.com/alrashidi7)
+
